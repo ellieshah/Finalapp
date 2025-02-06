@@ -43,20 +43,20 @@ const LandingSection = () => {
         .required("Required"),
     }),
     onSubmit: async (values, { resetForm }) => {
-      await submit(values);
+      await submit(null, values);
     },
   });
 
   useEffect(() => {
     if (response) {
       if (response.type === "success") {
-        onOpen("success", "All good! Thank you for your submission. We will get back to you shortly!");
+        onOpen("success", response.message);
         formik.resetForm();
       } else {
-        onOpen("error", "Oops! Something went wrong. Please try again.");
+        onOpen("error", response.message);
       }
     }
-  }, [response, onOpen, formik]);
+  }, [response]);
 
   return (
     <FullScreenSection
