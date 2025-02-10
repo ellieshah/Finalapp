@@ -38,7 +38,7 @@ const LandingSection = () => {
         .required("Required"),
       type: Yup.string().required("Required"),
       comment: Yup.string()
-        .min(10, "Must be at least 10 characters")
+        .min(25, "Must be at least 25 characters")
         .max(500, "Must be 500 characters or less")
         .required("Required"),
     }),
